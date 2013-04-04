@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    //açýlýþta çalýþmasý için
+    gonder();
+    //her 2 saniyede bir yenile
+    var int=self.setInterval("gonder()",10000);
+});
+ 
+function gonder(){
+    $.ajax({
+        type:'POST',
+        url:'veri.php',
+        success: function (msg) {
+            $("#sonuc").html(msg);
+        }
+    });
+}
+</script>
+</head>
+<body>
+<div id="sonuc"></div>
+</body>
+</html>
